@@ -5,7 +5,7 @@
       <view class="userinfo-avatar" bindtap="bindViewTap">
         <open-data type="userAvatarUrl"></open-data>
       </view>
-      <open-data type="userNickName"></open-data>
+      <text class="slogan">{{motto}}</text>
     </block>
     <block wx:elif="{{!hasUserInfo}}">
       <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
@@ -14,10 +14,18 @@
     </block>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="userinfo-nickname">{{motto}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="page-body">
+    <view class="contentBox">
+      <text class="twoMinPassion">{{twoMinPassion}}</text>
+    </view>
+
+    <view class="btn-area" id="buttonContainer">
+      <button type="primary" bindtap="bindClickMe">点我</button>
+    </view>
+    <text class="introduction">随机生成两分钟热爱</text>
   </view>
+
 </view>

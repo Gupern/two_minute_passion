@@ -3,9 +3,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #aaa;
+  color: #000000;
 }
 
+.slogan {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  color: #666666;
+  font: bold;
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  font-size: small;
+}
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
+  margin-top: 100rpx;
+  margin-left: 150rpx;
+  margin-right: 150rpx;
+}
+.twoMinPassion {
+  color: #000;
+  text-align:center;
+  font-size: large;
+}
 .userinfo-avatar {
   overflow: hidden;
   width: 128rpx;
@@ -13,7 +42,14 @@
   margin: 20rpx;
   border-radius: 50%;
 }
-
-.usermotto {
-  margin-top: 200px;
+button{
+  margin-top: 200rpx;
+  margin-bottom: 30rpx;
+}
+.button-sp-area{
+  margin: 0 auto;
+  width: 60%;
+}
+.mini-btn{
+  margin-right: 10rpx;
 }
