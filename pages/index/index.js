@@ -59,17 +59,29 @@ Page({
       url: '../logs/logs'
     })
   },
+  // 点击“点我”按钮
   bindClickMe() {
-    console.log(this.data.choices);
-    let index = Math.floor((Math.random() * this.data.choices.length));
-    let twoMinPassion = this.data.choices[index];
-    this.setData({
-      twoMinPassion: twoMinPassion
+    console.log("openid:", app.globalData.openid)
+    wx.request({
+      url: app.globalData.defaultURL + "/wechat/miniprogram/get_task",
+      method: "POST",
+      header: {
+        "content-type": "application/json"
+      },
+      data: {
+        openid: app.globalData.openid
+      },
+      success: (res) => {
+        console.log("res", res);
+        this.setData({
+          twoMinPassion: res.data.data
+        })
+      }
     })
-        // 订阅消息
-        console.log('123123',app)
-        console.log('tmpid', app.globalData.tmplId)
-        this.subscribeMessage(app.globalData.tmplId)
+    // 订阅消息
+    console.log('123123', app)
+    console.log('tmpid', app.globalData.tmplId)
+    this.subscribeMessage(app.globalData.tmplId)
   },
   onLoad() {
     let that = this
