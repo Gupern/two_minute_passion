@@ -1,11 +1,28 @@
 <!--index.wxml-->
 <view class="container">
+  <view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+    <!-- 如果想点击弹窗外不隐藏，取消bindtap点击事件即可 -->
+    <view class="zan-dialog__mask" bindtap="toggleDialog" />
+    <view class="zan-dialog__container">
+      <view style='padding:100rpx;'>
+        <text style="align-items: center;justify-content:center;display:flex;font-weight: bold;">产品理念\n\n</text>
+        <text>1. 对某些事只有2分钟热度，但过阵子又有兴趣\n\n</text>
+        <text>2. 把这些事加进来，每次随机玩2分钟\n\n</text>
+        <text>3. 别人坚持1件事3年，我们坚持100件事30年</text>
+      </view>
+    </view>
+  </view>
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-avatar" bindtap="bindViewTap">
         <open-data type="userAvatarUrl"></open-data>
       </view>
-      <text class="slogan">{{motto}}</text>
+      <view class="slogan">
+        <text class="motto">{{motto}} </text>
+        <image bindtap="bindClickImg" class="question_img" src="../../resource/image/question.jpg" mode='widthFix'></image>
+      </view>
+
+
     </block>
     <block wx:elif="{{!hasUserInfo}}">
       <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>

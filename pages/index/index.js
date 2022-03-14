@@ -10,24 +10,22 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
-    choices: [ // 10个字以内
-      "俯卧撑5个",
-      "拉伸1分钟",
-      "看一篇琴艺文章",
-      "看一篇戒烟文章",
-      "看一篇围棋文章",
-      "看一篇开发文章",
-      "喝口水",
-      "双眼放空10秒",
-      "自我暗示我是最帅的",
-      "自我暗示我会发财",
-      "防久坐：站起来5秒",
-      "夸一夸人",
-      "再来一次",
-      "写一行代码",
-    ],
+    showDialog: false,
+
     twoMinPassion: "\n",
   },
+  
+  /**
+  * 控制 pop 的打开关闭
+  * 该方法作用有2:
+  * 1：点击弹窗以外的位置可消失弹窗
+  * 2：用到弹出或者关闭弹窗的业务逻辑时都可调用
+  */
+ toggleDialog() {
+  this.setData({
+    showDialog: !this.data.showDialog
+  });
+ },
   // 分享功能
   onShareAppMessage() {
     const promise = new Promise(resolve => {
@@ -44,6 +42,7 @@ Page({
       promise
     }
   },
+  
   onShareTimeline() {
     return {
       title: '两分钟热度',
@@ -58,6 +57,11 @@ Page({
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  // 点击问号
+  bindClickImg() {
+    console.log("hasdfasdf")
+    this.toggleDialog();
   },
   // 点击“点我”按钮
   bindClickMe() {
@@ -90,7 +94,7 @@ Page({
         canIUseGetUserProfile: true,
       })
     }
-
+    console.log()
     console.log("index that", that, this.global)
   },
   getUserProfile(e) {

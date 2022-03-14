@@ -1,19 +1,37 @@
 /**index.wxss**/
 .userinfo {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column; */
+  align-items: left;
   color: #000000;
+  width: 100%;
 }
-
-.slogan {
+.userinfo-avatar {
   /* display: flex; */
-  flex-direction: column;
-  align-items: center;
+  /* width: 5010rpx; */
+  margin-left: 20px;
+}
+.motto {
+  display: flex;
+}
+.slogan {
+  display: flex;
+  flex-direction: row;
+  /* flex-direction: column; */
+  /* align-items: center; */
   color: #666666;
   font: bold;
+  margin: 55rpx 40rpx;
 }
-
+.question_img {
+  background-color: white;
+  display: flex;
+  border: 1px;
+  height: 40rpx;
+  width: 40rpx;
+  right: 0;
+  margin-left: 10rpx;
+}
 .introduction {
   display: flex;
   flex-direction: column;
@@ -52,4 +70,39 @@ button{
 }
 .mini-btn{
   margin-right: 10rpx;
+}
+.zan-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0);   /*设置阴影半透明背景如： background: rgba(0, 0, 0, 0.4);*/
+  display: none;
+}
+
+/*  弹窗 */
+.zan-dialog__container {
+  position: fixed;
+  align-items: center;
+  bottom: 28%;
+  width: 90%;    /*弹窗布局宽*/
+  height: 700rpx;   /*弹窗布局高，与下面弹出距离transform有关*/
+  /* padding-right: 10rpx; */
+  background: white;
+  transform: translateY(500%);  /*弹框弹出距离，与弹框布局高度有关，如300%表示弹起距离为3倍弹窗高度 */
+  transition: all 0.4s ease;
+  z-index: 12;
+  border-radius: 20rpx;
+  /* 弹框的悬浮阴影效果，如不需要可注释该行 */
+  box-shadow: 0px 3px 3px 2px gainsboro;  
+}
+
+.zan-dialog--show .zan-dialog__container {
+  transform: translateY(0);
+}
+
+.zan-dialog--show .zan-dialog__mask {
+  display: block;
 }
