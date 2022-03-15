@@ -57,6 +57,12 @@ Page({
                 this.setData({
                     project: res.data.data
                 })
+            },
+            fail: (res) => {
+                wx.showToast({
+                  title: '服务器维护中',
+                  icon: 'error'
+                })
             }
         })
     },

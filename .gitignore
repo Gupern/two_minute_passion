@@ -1,2 +1,4 @@
 .eslintrc.js
 node_modules/
+project.private.*
+projectConfig.js
