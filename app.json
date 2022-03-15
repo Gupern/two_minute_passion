@@ -1,14 +1,40 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/personal/personal",
+        "pages/derivatives/derivatives"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "color": "#8a8a8a",
+        "selectedColor": "#937bf5",
+        "list": [
+            {
+              "iconPath": "resource/image/tabbar/任务-unselected.png",
+              "selectedIconPath": "resource/image/tabbar/任务-selected.png",
+                "pagePath": "pages/index/index",
+                "text": "两分钟热度"
+            },
+            {
+              "iconPath": "resource/image/tabbar/打卡-unselected.png",
+              "selectedIconPath": "resource/image/tabbar/打卡-selected.png",
+                "pagePath": "pages/derivatives/derivatives",
+                "text": "衍生作品"
+            },
+            {
+              "iconPath": "resource/image/tabbar/用户管理-unselected.png",
+              "selectedIconPath": "resource/image/tabbar/用户管理-selected.png",
+                "pagePath": "pages/personal/personal",
+                "text": "个人中心"
+            }
+        ]
+    }
 }

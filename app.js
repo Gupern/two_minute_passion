@@ -16,6 +16,7 @@ App({
 
 
     let that = this;
+    
     // 进行登录
     wx.login({
       success: res => {
