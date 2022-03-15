@@ -1,2 +1,39 @@
-<!--pages/personal/personal.wxml-->
-<text>pages/personal/personal.wxml</text>
+<view class='containe'>
+    <view class='firstlayout'>
+        <open-data type="userAvatarUrl" class='firstimagestyle'></open-data> 
+        <open-data type="userNickName" lang="zh_CN" class='firstfontstyle'></open-data> 
+        <!-- <view class='secondlayout'>
+            <view class='secondlayoutitem'>
+                <text class='firstfontstyle'>积分：</text>
+                <text class='firstfontstyle'>{{personal.scores}}</text>
+            </view>
+            <view  class='lineview'></view>
+            <view class='secondlayoutitem'>
+                <text class='firstfontstyle'>等级：</text>
+                <text class='firstfontstyle'>Lv.{{personal.lv}}</text>
+            </view>
+        </view> -->
+    </view>
+    <view class='containe'>
+        <view class='thirdlayout' bindtap='bindViewMyFlag'>
+            <view class='thirdlayout'>
+                <!-- <image class='secondimagestyle' src='/images/5.png'></image> -->
+                <text class='secondfontstyle'>我的flag</text>
+            </view>
+            <!-- <view class='fourthlayout'>
+                <image src='/images/2.png' class='thirdimagestyle'></image>
+            </view> -->
+        </view>
+        <view class='lineviewtwo'></view>
+        <view class='thirdlayout' bindtap='bindViewAddFlag'>
+            <view class='thirdlayout'>
+                <!-- <image class='secondimagestyle' src='/images/3.png'></image> -->
+                <text class='secondfontstyle'>添加flag</text>
+            </view>
+            <!-- <view class='fourthlayout'>
+                <image src='/images/2.png' class='thirdimagestyle'></image>
+            </view> -->
+        </view>
+        <view class='lineviewtwo'></view>
+     </view>
+</view>

@@ -1,0 +1,30 @@
+<!--pages/myFlag/myFlag.wxml-->
+
+<view class="container">
+    <view class="table" wx:for="{{project}}" wx:for-item="projectItem" wx:key="projectId">
+        <text class="project" wx:if="{{projectItem.projectName==null}}">
+            未归类项目
+        </text>
+        <text class="project" wx:else>
+            {{projectItem.projectName}}
+        </text>
+        <view class="table">
+            <view class="tr bg-w">
+                <view class="th">任务名</view>
+                <view class="th">完成次数</view>
+            </view>
+            <block wx:for="{{projectItem.taskList}}" wx:key="taskId" wx:for-item="taskItem" >
+                <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+                    <view class="td">{{taskItem.name}}</view>
+                    <view class="td">{{taskItem.count}}</view>
+
+                </view>
+                <view class="tr" wx:else>
+                    <view class="td">{{taskItem.name}}</view>
+                    <view class="td">{{taskItem.count}}</view>
+
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
