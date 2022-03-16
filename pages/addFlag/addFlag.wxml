@@ -1,0 +1,13 @@
+<!--pages/addFlag/addFlag.wxml-->
+<view class="container">
+    <form catchsubmit="formSubmit" catchreset="formReset" class="form">
+        <text class="text">Flag名称</text>
+        <input class="weui-input" focus maxlength="10" name="project" placeholder="你的梦想" />
+        <text class="text">2分钟任务</text>
+        <input class="weui-input" maxlength="10" name="task" placeholder="要可完成的" />
+        <view style="margin-top: 30%;">
+            <button class="button" type="primary" formType="submit">添加</button>
+            <button class="button" formType="reset">重置</button>
+        </view>
+    </form>
+</view>

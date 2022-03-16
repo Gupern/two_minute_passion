@@ -1,0 +1,55 @@
+/* pages/myFlag/myFlag.wxss */
+
+.project {
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3%;
+}
+
+.task {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.table {
+    border: 0px solid darkgray;
+    margin-bottom: 3%;
+}
+
+.tr {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 3rem;
+    align-items: center;
+}
+
+.td {
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+}
+
+.bg-w {
+    background: snow;
+}
+
+.bg-g {
+    background: #E6F3F9;
+}
+
+.th {
+    width: 50%;
+    justify-content: center;
+    background: #E92385;
+    color: black;
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    font-size: large;
+}
