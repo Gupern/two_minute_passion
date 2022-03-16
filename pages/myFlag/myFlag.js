@@ -7,24 +7,13 @@ Page({
      */
     data: {
         project: [{
-            "projectName": "project name",
+            "projectName": "",
             "taskList": [{
-                "name": "task name",
-                "count": 3
+                "name": "",
+                "count": ''
             }, {
-                "name": "夸人",
-                "count": 4
-            }]
-
-        }, {
-
-            "projectName": "project name",
-            "taskList": [{
-                "name": "task name",
-                "count": 3
-            }, {
-                "name": "夸人",
-                "count": 4
+                "name": "",
+                "count": ''
             }]
 
         }]

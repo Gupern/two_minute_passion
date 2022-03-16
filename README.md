@@ -6,3 +6,13 @@
 - 编译前预处理: `npm run switch:dev`
 - 预览前预处理: `npm run switch:dev`
 - 上传前预处理: `npm run switch:prod`
+
+### 衍生作品相关代码 app.json
+```
+            {
+                "iconPath": "resource/image/tabbar/打卡-unselected.png",
+                "selectedIconPath": "resource/image/tabbar/打卡-selected.png",
+                "pagePath": "pages/derivatives/derivatives",
+                "text": "衍生作品"
+            },
+```

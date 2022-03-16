@@ -55,7 +55,7 @@
     },
     "scripts": {
         "beforeCompile": "npm run switch:dev",
-        "beforePreview": "npm run switch:dev",
+        "beforePreview": "npm run switch:prod",
         "beforeUpload": "npm run switch:prod"
     },
     "staticServerOptions": {

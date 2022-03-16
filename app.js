@@ -7,16 +7,7 @@ App({
   onLaunch() {
     // 获取本地配置信息
     console.log("APP.js 目前的配置信息为: ", config)
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-
-
-
     let that = this;
-    
     // 进行登录
     wx.login({
       success: res => {
@@ -33,6 +24,7 @@ App({
             var res = result.data
             that.globalData.openid = res.openid
             that.globalData.session_key = res.session_key
+            that.globalData.hasLogon = true
 
             typeof cb == "function" && cb(that.globalData.openid);
             typeof cb == "function" && cb(that.globalData.session_key);
@@ -46,6 +38,7 @@ App({
           title: '登录失败',
           icon: 'error'
         })
+        that.globalData.hasLogon = false
       },
       complete(res) {
         console.log(res)

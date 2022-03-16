@@ -1,7 +1,6 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/logs/logs",
         "pages/personal/personal",
         "pages/derivatives/derivatives",
         "pages/myFlag/myFlag",
@@ -26,12 +25,7 @@
                 "pagePath": "pages/index/index",
                 "text": "两分钟热度"
             },
-            {
-                "iconPath": "resource/image/tabbar/打卡-unselected.png",
-                "selectedIconPath": "resource/image/tabbar/打卡-selected.png",
-                "pagePath": "pages/derivatives/derivatives",
-                "text": "衍生作品"
-            },
+
             {
                 "iconPath": "resource/image/tabbar/用户管理-unselected.png",
                 "selectedIconPath": "resource/image/tabbar/用户管理-selected.png",

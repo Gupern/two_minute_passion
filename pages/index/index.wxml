@@ -13,36 +13,26 @@
     </view>
   </view>
   <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <view class="slogan">
+    <block wx:if="{{hasUserInfo}}">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    </block>
+    <view class="slogan">
         <text class="motto">{{motto}} </text>
         <image bindtap="bindClickImg" class="question_img" src="../../resource/image/question.jpg" mode='widthFix'></image>
       </view>
-
-
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{motto}}</text>
-    </block>
   </view>
   <view class="page-body">
     <view class="contentBox">
       <text class="twoMinPassion">{{twoMinPassion}}</text>
     </view>
-
-    <view class="btn-area" id="buttonContainer">
-      <button type="primary" bindtap="bindClickMe">点我</button>
+    <view wx:if="{{hasTaskId}}" class="btn-area" id="buttonContainer">
+      <button type="primary" bindtap="finishTask">已完成</button>
+      <text class="introduction" bindtap="changeTask">换一个</text>
     </view>
-    <text class="introduction">随机生成两分钟热爱</text>
+    <view wx:else class="btn-area" id="buttonContainer">
+      <button type="primary" bindtap="bindClickMe">点我</button>
+      <text class="introduction">随机生成两分钟热爱</text>
+    </view>
   </view>
 
 </view>

@@ -4,8 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img:"/images/1.jpg",
-    name:"111",
+    avatarUrl:"../../resource/image/1.jpg",
+    nickName:"Vistor",
   },
 
 
@@ -20,7 +20,6 @@ Page({
         url: '../addFlag/addFlag'
     });
   },
-
   onShareTap: function (event) {
     var itemList = [
       "分享给微信好友",
