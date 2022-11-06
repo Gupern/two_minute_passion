@@ -1,6 +1,6 @@
 module.exports = {
-  "environment": "devolopment",
-  "defaultURL": "http://localhost:8080",
+  "environment": "production",
+  "defaultURL": "https://apis.gupern.tech/pnav",
   "getSession": "/wechat/miniprogram/get_session",
   "tmplId": "Y7kzQsgyfzu-K1WkY5nAFbB6avGFNyK1voD9vx3_fCU"
 }

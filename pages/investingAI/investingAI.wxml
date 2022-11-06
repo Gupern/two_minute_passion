@@ -1,0 +1,217 @@
+<view class="container">
+  <!-- 整体基金信息 -->
+  <view>
+    <view class="tr bg-w">
+      <view class="th">持仓份额</view>
+      <view class="th">成本金额</view>
+      <view class="th ">已获利</view>
+      <view class="th ">零成本份额</view>
+    </view>
+    <view class="tr bg-w">
+      <view class="td">{{shares}}</view>
+      <view class="td">{{amount}}</view>
+      <view class="td">{{profit}}</view>
+      <view class="td">{{zeroShares}}</view>
+    </view>
+  </view>
+  <!-- 切换功能 -->
+  <view class="switch-table" style="width: 100%;">
+    <view class="btn" bindtap="displayTable1">
+      <button size="mini">份额运营</button>
+    </view>
+    <view class="btn" bindtap="displayTable2">
+      <button size="mini">操作盈亏</button>
+    </view>
+    <navigator class="btn" bindtap="displayTable3">
+      <button size="mini">基金记录</button>
+    </navigator>
+  </view>
+  <textarea placeholder="草稿本" style="width:100%; height: 150rpx;border:solid 1px grey" />
+  <!-- 份额运营表 -->
+  <view wx:if="{{displayTable==1}}">
+    <view class="button-sp-area">
+      <button bindtap="showInput" type="primary" plain="true">更新份额运营</button>
+    </view>
+    <form wx:if="{{isShowInput}}" catchsubmit="updateSharesRunning" catchreset="hideInput" class="form">
+      <view style="display:flex;align-items:center">
+        <text>id:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="id" placeholder="请输入id, 空则为新增" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>日期:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="operationTime" placeholder="请输入日期yyyy-MM-dd" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>买净值:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="unv" placeholder="请输入买入净值" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>份额:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="shares" placeholder="请输入卖出净值" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>剩余份额:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="sharesRemaining" placeholder="请输入份额" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>零成本:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="zeroCost" placeholder="请输入买卖盈亏" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <button class="button" type="primary" formType="submit">添加</button>
+        <button class="button" formType="reset">取消</button>
+      </view>
+    </form>
+
+    <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+      <view class="tr bg-w">
+        <view class="th">id</view>
+        <view class="th">日期</view>
+        <view class="th">买净值</view>
+        <view class="th ">份额</view>
+        <view class="th ">剩余份额</view>
+        <view class="th ">零成本</view>
+        <view class="th">删除</view>
+      </view>
+      <view wx:for="{{sharesRunningList}}" wx:for-item="item" wx:for-index="indexTh" wx:key="indexTh">
+        <view class="tr bg-w">
+          <view class="td">{{item.id}}</view>
+          <view class="td">{{item.date}}</view>
+          <view class="td">{{item.unv}}</view>
+          <view class="td">{{item.shares}}</view>
+          <view class="td">{{item.sharesRemaining}}</view>
+          <view class="td">{{item.zeroCost}}</view>
+          <view class="td">
+            <button bindtap="deleteSharesRunning" data-id="{{item.id}}" style="margin: 0;width: auto;padding: 0">-</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 操作盈利表 -->
+  <view wx:if="{{displayTable==2}}">
+    <view class="button-sp-area">
+      <button bindtap="showInput" type="primary" plain="true">更新操作盈亏</button>
+    </view>
+    <form wx:if="{{isShowInput}}" catchsubmit="updateOperationProfit" catchreset="hideInput" class="form">
+      <view style="display:flex;align-items:center">
+        <text>id:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="id" placeholder="请输入id, 空则为新增" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>日期:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="operationTime" placeholder="请输入日期yyyy-MM-dd" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>买净值:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="unv" placeholder="请输入买入净值" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>卖净值:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="unvSold" placeholder="请输入卖出净值" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>份额:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="shares" placeholder="请输入份额" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>盈亏:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="profit" placeholder="请输入买卖盈亏" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <button class="button" type="primary" formType="submit">添加</button>
+        <button class="button" formType="reset">取消</button>
+      </view>
+    </form>
+
+    <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+      <view class="tr bg-w">
+        <view class="th">id</view>
+        <view class="th">日期</view>
+        <view class="th">买净值</view>
+        <view class="th ">卖净值</view>
+        <view class="th ">份额</view>
+        <view class="th ">盈亏</view>
+        <view class="th">删除</view>
+      </view>
+      <view wx:for="{{operationProfitList}}" wx:for-item="item" wx:for-index="indexTh" wx:key="indexTh">
+        <view class="tr bg-w">
+          <view class="td">{{item.id}}</view>
+          <view class="td">{{item.date}}</view>
+          <view class="td">{{item.unv}}</view>
+          <view class="td">{{item.unvSold}}</view>
+          <view class="td">{{item.shares}}</view>
+          <view class="td">{{item.profit}}</view>
+          <view class="td">
+            <button bindtap="deleteOperationProfit" data-id="{{item.id}}" style="margin: 0;width: auto;padding: 0">-</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 基金记录表 -->
+  <view wx:if="{{displayTable==3}}">
+    <view class="button-sp-area">
+      <button bindtap="showInput" type="primary" plain="true">更新基金记录</button>
+    </view>
+    <form wx:if="{{isShowInput}}" catchsubmit="updateFundRecord" catchreset="hideInput" class="form">
+      <view style="display:flex;align-items:center">
+        <text>id:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="id" placeholder="请输入id, 空则为新增" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>日期:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="operationTime" placeholder="请输入日期yyyy-MM-dd" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>金额:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="amount" placeholder="请输入金额" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>净值:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="unv" placeholder="请输入净值" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>份额:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="shares" placeholder="请输入份额" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <text>买卖:</text>
+        <input style="border:solid 1px grey" maxlength="10" name="operation" placeholder="请输入买卖，卖0，卖1" />
+      </view>
+      <view style="display:flex;align-items:center">
+        <button class="button" type="primary" formType="submit">添加</button>
+        <button class="button" formType="reset">取消</button>
+      </view>
+    </form>
+
+    <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+      <view class="tr bg-w">
+        <view class="th">id</view>
+        <view class="th">日期</view>
+        <view class="th">金额</view>
+        <view class="th ">净值</view>
+        <view class="th ">份额</view>
+        <view class="th ">买卖</view>
+        <view class="th">删除</view>
+      </view>
+      <view wx:for="{{fundRecordList}}" wx:for-item="item" wx:for-index="indexTh" wx:key="indexTh">
+        <view wx:if="{{item.status==0}}" class="tr bg-w">
+          <view class="td">{{item.id}}</view>
+          <view class="td">{{item.date}}</view>
+          <view class="td">{{item.shares}}</view>
+          <view class="td">{{item.amount}}</view>
+          <view class="td">{{item.unv}}</view>
+          <view class="td" wx:if="{{item.operation==0}}">买入</view>
+          <view class="td" wx:elif="{{item.operation==1}}">卖出</view>
+          <view class="td" wx:else>未知</view>
+          <view class="td">
+            <button bindtap="deleteFundRecord" data-id="{{item.id}}" style="margin: 0;width: auto;padding: 0">-</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+</view>
