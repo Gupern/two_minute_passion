@@ -8,6 +8,139 @@
   /*align-items:center;*/
   /*要从整体解决排布的问题是最好的方案*/
 }
+.table {
+  border: 1px solid darkgray;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.td1 {
+  width: 40%;
+  /* justify-content: center; */
+  /* text-align: center; */
+  font-size: 12px;
+  /* align-items: center; */
+  word-wrap:break-word
+}
+.td {
+  width: 18%;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  align-items: center;
+}
+/* table tr td:first-child{width:120px;} */
+
+
+.bg-w {
+  background: snow;
+}
+
+.bg-g {
+  background: #E6F3F9;
+}
+
+.bg-e {
+  background: #c7ccce;
+}
+.th1 {
+  width: 40%;
+  justify-content: center;
+  background: #215fd1;
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  font-size: 13px;
+}
+.th {
+  width: 18%;
+  justify-content: center;
+  background: #215fd1;
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  font-size: 13px;
+}
+.tableComponent {
+  width:100%;
+  height: 100%;
+  background: black;
+  }
+   
+  .title {
+  font-size: 35rpx;
+  color: #fff;
+  text-align: center;
+  }
+
+/* button {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+} */
+
+.button-sp-area {
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.mini-btn {
+  margin-right: 10rpx;
+  float: left;
+  display: flex;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.btn {
+  margin: 10rpx;
+  float: left;
+}
+
+
+.td-button {
+  width: 10rpx
+}
+
+
+.scroll-view_H{
+  white-space: nowrap;
+}
+
+.scroll-view-item_H{
+  display: inline-block;
+  width: 100%;
+}
+
+
+.input-section {
+position: absolute;
+display: flex;
+align-items: center;
+height: 110rpx;
+bottom: 0rpx;
+left: 0rpx;
+right: 0rpx;
+z-index: 500;
+background: #fff;
+}
+
+.input_input {
+background: #fff;
+margin-top: 12rpx;
+z-index: 500;
+width: 580rpx;
+height: 110rpx;
+padding-left: 35rpx;
+}
 
 .firstlayout {
   /*弹性模型*/

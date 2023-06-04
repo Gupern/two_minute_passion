@@ -1,6 +1,5 @@
 {
-  "usingComponents": {
-      "table": "../components/table/table"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "投资助手"
 }
+

@@ -1,0 +1,9 @@
+<!--pages/investingAI/investingAI.wxml-->
+<scroll-view style="height: 1000rpx;" scroll-y="true">
+  <view class="containe" wx:for="{{recHisList}}" wx:key="index" bindtap="bindViewDetail" data-item="{{item}}">
+    <view class='thirdlayout'>
+      <text class='secondfontstyle'>{{item}}</text>
+    </view>
+    <view class='lineviewtwo'></view>
+  </view>
+</scroll-view>

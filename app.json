@@ -4,7 +4,9 @@
     "pages/personal/personal",
     "pages/myFlag/myFlag",
     "pages/addFlag/addFlag",
-    "pages/investingAI/investingAI"
+    "pages/investingAI/investingAI",
+    "pages/investingAIHistory1/investingAIHistory1",
+    "pages/investingAIHistory2/investingAIHistory2"
   ],
   "lazyCodeLoading": "requiredComponents",
   "window": {

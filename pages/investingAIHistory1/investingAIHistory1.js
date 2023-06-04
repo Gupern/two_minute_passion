@@ -6,78 +6,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-    recList: [{
-      "name": "Hot",
-      "strategyId": "0",
-      "buyList": "1",
-      "sellList": "2",
-      "holdingList": "3"
-    }]
+    strategyId: 0,
+    recHisList: [
+      "暂无数据"
+    ]
   },
   //事件处理函数
   bindViewDetail: function (event) {
     let item = event.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../investingAIHistory1/investingAIHistory1?strategyId=' + item.strategyId
+      url: '../investingAIHistory2/investingAIHistory2?strategyId=' + this.data.strategyId + '&recommendDate=' + item
     });
   },
   // refresh
-  refresh: function (event) {
-    wx.request({
-      url: app.globalData.defaultURL + "/wechat/miniprogram/stockAI/recList",
-      method: "POST",
-      header: {
-        "content-type": "application/json"
-      },
-      data: {
-        openid: app.globalData.openid,
-      },
-      success: (res) => {
-        console.log("res", res);
-        this.setData({
-          recList: res.data.data
-        })
-        console.log(this.data.recList)
-      },
-      fail: (res) => {
-        wx.showToast({
-          title: '服务器维护中',
-          icon: 'error'
-        })
-      },
-      complete: () => {
-      }
-    })
+  refresh: function(event) {
+ 
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     console.log(options)
+    this.setData({
+      strategyId: options.strategyId
+    })
     wx.request({
-      url: app.globalData.defaultURL + "/wechat/miniprogram/stockAI/recList",
+      url: app.globalData.defaultURL + "/wechat/miniprogram/stockAI/recHisList",
       method: "POST",
       header: {
         "content-type": "application/json"
       },
       data: {
+        strategyId: options.strategyId,
         openid: app.globalData.openid,
       },
       success: (res) => {
         console.log("res", res);
         this.setData({
-          recList: res.data.data
+          recHisList: res.data.data
         })
-        console.log(this.data.recList)
       },
       fail: (res) => {
         wx.showToast({
           title: '服务器维护中',
           icon: 'error'
         })
-      },
-      complete: () => {
-
+      }, complete: () => {
+        
       }
     })
   },

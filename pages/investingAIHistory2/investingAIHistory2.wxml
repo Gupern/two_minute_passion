@@ -1,0 +1,23 @@
+<!--pages/investingAI/investingAI.wxml-->
+<scroll-view style="height: 1000rpx;" scroll-y="true">
+  <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+    <view class="tr bg-w">
+      <view class="th1">open</view>
+      <view class="th">d1</view>
+      <view class="th">d2</view>
+      <view class="th ">d3</view>
+      <view class="th ">d5</view>
+      <view class="th">last</view>
+    </view>
+    <view wx:for="{{recHisDetail}}" wx:for-item="item" wx:for-index="indexTh" wx:key="indexTh">
+      <view class="tr bg-w">
+        <view class="td1">{{item.name}}</view>
+        <view class="td">{{item.d1}}%</view>
+        <view class="td">{{item.d2}}%</view>
+        <view class="td">{{item.d3}}%</view>
+        <view class="td">{{item.d5}}%</view>
+        <view class="td">{{item.last}}%</view>
+      </view>
+    </view>
+  </scroll-view>
+</scroll-view>
